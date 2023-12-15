@@ -1,0 +1,16 @@
+FROM alpine:3.18.4@sha256:eece025e432126ce23f223450a0326fbebde39cdf496a85d8c016293fc851978 as builder
+WORKDIR /app
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+RUN apk add --no-cache gettext=0.21.1-r7
+
+ENV PORT 8080
+ARG HOSTNAME
+ENV HOSTNAME ${HOSTNAME}
+ARG SERVICE_SUFFIX
+ENV SERVICE_SUFFIX ${SERVICE_SUFFIX}
+
+COPY envoy.template.yaml envoy.template.yaml
+RUN envsubst < envoy.template.yaml > envoy.yaml
+
+FROM envoyproxy/envoy:distroless-v1.28-latest@sha256:0bb664e36cef65b884965b22bbb2fbd1acecb8bb174683a321677c4fc7475593
+COPY --from=builder /app/envoy.yaml /etc/envoy/envoy.yaml

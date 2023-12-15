@@ -1,0 +1,6 @@
+name: api-gateway
+runtime: nodejs
+description: A minimal Google Cloud TypeScript Pulumi program
+config:
+  gcp:region: asia-east1
+  service:name: api-gateway

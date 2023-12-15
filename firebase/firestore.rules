@@ -1,0 +1,86 @@
+rules_version = "2";
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function existingData() {
+      return resource.data;
+    }
+    
+    function incomingData() {
+      return request.resource.data;
+    }
+
+    function now() {
+      return request.time;
+    }
+
+    function isUser(uid) {
+      return request.auth.uid != null && request.auth.uid == uid;
+    }
+
+    match /users/{userId} {
+      allow get: if isUser(userId);
+      allow create: if isUser(userId) && 
+        incomingData().createdAt is timestamp &&
+        incomingData().createdAt == now() &&
+        incomingData().token is string &&
+        incomingData().savedLocations is list &&
+        incomingData().savedLocations.size() == 0
+      allow update: if isUser(userId) && 
+        incomingData().createdAt is timestamp &&
+        incomingData().createdAt == existingData().createdAt &&
+        incomingData().token is string &&
+        incomingData().savedLocations is list &&
+        incomingData().savedLocations.size() <=3
+    }
+
+    match /partners/{partnerId} {
+      allow get: if isUser(partnerId);
+      allow create: if isUser(partnerId) && 
+        incomingData().createdAt is timestamp &&
+        incomingData().createdAt == now() &&
+        incomingData().lastActive == incomingData().createdAt &&
+        incomingData().rechargedAt == incomingData().createdAt &&
+        incomingData().documents is map &&
+        incomingData().vehicles is list &&
+        incomingData().vehicles.size() == 1 &&
+        incomingData().token is string;
+      allow update: if isUser(partnerId) && 
+        incomingData().createdAt == existingData().createdAt &&
+        incomingData().rechargedAt is timestamp &&
+        incomingData().documents is map &&
+        incomingData().vehicles == existingData().vehicles &&
+        incomingData().vehicles.size() == 1 &&
+        incomingData().token is string;
+    }
+
+    match /vehicles/{vehicleId} {
+      allow get: if isUser(existingData().ownerId) || isUser(existingData().partnerId);
+      allow list: if isUser(existingData().ownerId);
+      allow create: if isUser(incomingData().ownerId) && 
+        incomingData().ownerId is string &&
+        incomingData().createdAt is timestamp &&
+        incomingData().createdAt == now() &&
+        incomingData().documents is map &&
+        incomingData().partnerId is string &&
+        incomingData().regNo is string &&
+        incomingData().type is string;
+      allow update: if isUser(existingData().ownerId) && 
+        incomingData().ownerId == existingData().ownerId &&
+        incomingData().createdAt == existingData().createdAt &&
+        incomingData().documents is map &&
+        incomingData().partnerId is string &&
+        incomingData().regNo == existingData().regNo &&
+        incomingData().type == existingData().type;
+    }
+
+    match /orders/{orderId} {
+      allow read: if isUser(existingData().user.id) || isUser(existingData().operator.id);
+    }
+
+    match /recharges/{rechargeId} {
+      allow read, write: if false;
+    }
+  }
+}

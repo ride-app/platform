@@ -1,0 +1,41 @@
+substitutions:
+  _SERVICE_NAME: api-gateway
+
+steps:
+  # Step 1: Build a Docker image
+  - name: gcr.io/cloud-builders/docker@sha256:bf4796a70ad14d933af98b714ab973146f9bccc0342216b18ff0e026f541e0d8
+    args:
+      - build
+      - --build-arg=HOSTNAME=$_DOMAIN
+      - --build-arg=SERVICE_SUFFIX=$_SERVICE_SUFFIX
+      - -t
+      - asia-south2-docker.pkg.dev/$PROJECT_ID/docker-registry/$_SERVICE_NAME:$COMMIT_SHA
+      - -t
+      - asia-south2-docker.pkg.dev/$PROJECT_ID/docker-registry/$_SERVICE_NAME:$BRANCH_NAME
+      - -t
+      - asia-south2-docker.pkg.dev/$PROJECT_ID/docker-registry/$_SERVICE_NAME:latest
+      - .
+
+  # Step 2: Push a Docker image
+  - name: gcr.io/cloud-builders/docker@sha256:bf4796a70ad14d933af98b714ab973146f9bccc0342216b18ff0e026f541e0d8
+    args:
+      - push
+      - asia-south2-docker.pkg.dev/$PROJECT_ID/docker-registry/$_SERVICE_NAME:$COMMIT_SHA
+
+  # Step 3: Push the new Cloud Run revision
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk@sha256:c3b4a119ec24a1481d7d4ef72a4486496279a90a7acb615c7cf1481fff977398
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - $_SERVICE_NAME
+      - --image
+      - asia-south2-docker.pkg.dev/$PROJECT_ID/docker-registry/$_SERVICE_NAME:$COMMIT_SHA
+      - --region=asia-east1
+      - --allow-unauthenticated
+      - --max-instances=10
+      - --port=8080
+      - --use-http2
+
+images:
+  - asia-south2-docker.pkg.dev/$PROJECT_ID/docker-registry/$_SERVICE_NAME:$COMMIT_SHA

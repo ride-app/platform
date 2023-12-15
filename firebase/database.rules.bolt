@@ -1,0 +1,137 @@
+//Types
+type BaseOperator {
+  vehicleId: String,
+  vehicleNo: String,
+  vehicleType: String
+}
+
+type Operator extends BaseOperator {
+  lastUpdated: Number | Null
+  token: String,
+  currentPath: String | Null
+  riders: Number,
+  orders: OperatorOrder[] | Null
+}
+
+type OrderOperator extends BaseOperator {
+  location: Location,
+  distance: Number,
+  operatorName: String,
+  phone: String,
+  photoUrl: String,
+}
+
+type VehicleLocation {
+  g: String,
+  l: Location
+
+  validate() { this.g.length < 12 }
+}
+
+type Location {
+  "0": Number,
+  "1": Number
+
+  validate() { (this["0"]+"").test(/^-?([0-8]?[0-9]|90)(\.[0-9]{1,10})$/) && (this["1"]+"").test(/^-?([0-9]{1,2}|1[0-7][0-9]|180)(\.[0-9]{1,10})$/) && prior(this) != this }
+}
+
+type OperatorOrder {
+  status: Boolean,
+  recievedAt: Number
+
+  validate() { (prior(this) == null && this.recievedAt == now) || prior(this) != null }
+}
+
+type Order {
+  createdAt: Number
+  status: Number
+  type: String
+  vehicleType: String
+  passengers: Number
+  locations: OrderLocation[]
+  bounds: Location[]
+  polyline: String
+  user: User
+  vehicle: OrderOperator | Null
+
+  validate() { (prior(this) == null 
+    && this.createdAt == now
+    && this.type == "regular" || "shared" || "hire" || "intercity"
+    && this.vehicleType == "eRickshaw" || "autoRickshaw" || "motorcycle"
+    && this.passengers >= 1
+    && this.locations.length >= 1
+  ) || (prior(this) != null 
+    && prior(this).createdAt == this.createdAt 
+    && prior(this).type == this.type 
+    && prior(this).vehicleType == this.vehicleType
+    && prior(this).passengers == this.passengers 
+    && prior(this).locations == this.locations
+    && prior(this).bounds == this.bounds
+    && prior(this).polyline == this.polyline
+    && prior(this).user == this.user 
+    && prior(this).vehicle == this.vehicle 
+    && prior(this).status != this.status
+  )}
+}
+
+type OrderLocation extends Location {
+  "2": String
+}
+
+type User {
+  id: String,
+  name: String,
+  phone: String,
+  photoUrl: String,
+  token: String,
+}
+
+//Paths
+
+path /eRickshaw {
+  /{operatorId} is VehicleLocation {
+    read() { auth != null }
+    write() { isUser(operatorId) }
+  }
+  
+  index() {['g']}
+}
+
+path /autoRickshaw {
+  /{operatorId} is VehicleLocation {
+    read() { auth != null }
+    write() { isUser(operatorId) }
+  }
+  
+  index() {['g']}
+}
+
+path /motorcycle {
+  /{operatorId} is VehicleLocation {
+    read() { auth != null }
+    write() { isUser(operatorId) }
+  }
+  
+  index() {['g']}
+}
+
+path /operators/{operatorId} is Operator {
+  read() { isUser(operatorId) }
+  write() { isUser(operatorId) }
+}
+
+path /orders {
+  read() {query.orderByChild == 'user/id' && query.equalTo == auth.uid }
+
+  /{orderId} is Order {
+    read() { (this != null && (isUser(this.user.id) || isUser(this.vehicle.operatorId)) && root.operators[auth.uid].orders[orderId] != null) || (this == null && auth != null)}
+    create() { false }
+    update() { prior(this) != null && isUser(prior(this).vehicle.operatorId) }
+    delete() { false }
+  }
+
+  index() {['user/id']}
+}
+
+//Functions
+isUser(uid) { auth != null && auth.uid == uid }

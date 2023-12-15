@@ -1,0 +1,6 @@
+version: v1
+plugins:
+  - remote: buf.build/timostamm/plugins/protobuf-ts:v2.6.0-1
+    out: src/gen
+    opt:
+      - client_grpc1

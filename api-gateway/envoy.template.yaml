@@ -1,0 +1,286 @@
+application_log_config:
+  log_format:
+    json_format:
+      timestamp: "%Y-%m-%dT%T.%F"
+      threadId: "%t"
+      sourceLine: "%s:%#"
+      severity: "%l"
+      message: "%j"
+
+static_resources:
+  listeners:
+    - name: listener_0
+      stat_prefix: listener_0
+      address:
+        socket_address: { address: 0.0.0.0, port_value: $PORT }
+      filter_chains:
+        - filters:
+            - name: envoy.http_connection_manager
+              typed_config:
+                "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+                stat_prefix: ingress_http
+                codec_type: AUTO
+                access_log:
+                  - name: envoy.access_loggers.stdout
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.access_loggers.stream.v3.StdoutAccessLog
+                      log_format:
+                        json_format:
+                          timestamp: "%START_TIME%"
+                          duration: "%DURATION%"
+                          protocol: "%PROTOCOL%"
+                          content-type: "%REQ(CONTENT-TYPE)%"
+                          http_response_code: "%RESPONSE_CODE%"
+                          method: "%REQ(:METHOD)%"
+                          path: "%REQ(X-ENVOY-ORIGINAL-PATH?:PATH)%"
+                          grpc_status: "%GRPC_STATUS(CAMEL_STRING)%"
+                          user_agent: "%REQ(USER-AGENT)%"
+                          authority: "%REQ(:AUTHORITY)%"
+                          requst_id: "%REQ(X-REQUEST-ID)%"
+                          forwarded_for: "%REQ(X-FORWARDED-FOR)%"
+                          bytes_sent: "%BYTES_SENT%"
+                          bytes_recieved: "%BYTES_RECEIVED%"
+                          response_flags: "%RESPONSE_FLAGS%"
+                          upstream_host: "%UPSTREAM_HOST%"
+                          upstream_service_time: "%RESP(X-ENVOY-UPSTREAM-SERVICE-TIME)%"
+
+                route_config:
+                  name: local_route
+                  virtual_hosts:
+                    - name: api-gateway
+                      domains:
+                        - "${HOSTNAME}"
+                        - api-gateway-$SERVICE_SUFFIX-de.a.run.app
+                      routes:
+                        - match: { prefix: /ride.rider }
+                          stat_prefix: user_service
+                          route:
+                            cluster: user_service_cluster
+                            auto_host_rewrite: true
+
+                        - match: { prefix: /ride.driver }
+                          stat_prefix: driver_service
+                          route:
+                            cluster: driver_service_cluster
+                            auto_host_rewrite: true
+
+                        - match: { prefix: /ride.trip }
+                          stat_prefix: trip_service
+                          route:
+                            cluster: trip_service_cluster
+                            auto_host_rewrite: true
+
+                        - match: { prefix: /ride.marketplace }
+                          stat_prefix: marketplace_service
+                          route:
+                            cluster: marketplace_service_cluster
+                            auto_host_rewrite: true
+
+                        - match: { prefix: /ride.wallet }
+                          stat_prefix: wallet_service
+                          route:
+                            cluster: wallet_service_cluster
+                            auto_host_rewrite: true
+
+                        - match: { prefix: /ride.recharge }
+                          stat_prefix: recharge_service
+                          route:
+                            cluster: recharge_service_cluster
+                            auto_host_rewrite: true
+
+                        - match: { prefix: /ride.payout }
+                          stat_prefix: payout_service
+                          route:
+                            cluster: payout_service_cluster
+                            auto_host_rewrite: true
+
+                        - match: { prefix: /ride.notification }
+                          stat_prefix: notification_service
+                          route:
+                            cluster: notification_service_cluster
+                            auto_host_rewrite: true
+
+                http_filters:
+                  - name: envoy.filters.http.grpc_stats
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.filters.http.grpc_stats.v3.FilterConfig
+                  - name: envoy.filters.http.connect_grpc_bridge
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.filters.http.connect_grpc_bridge.v3.FilterConfig
+                  - name: envoy.filters.http.router
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+
+  clusters:
+    - name: user_service_cluster
+      connect_timeout: 10s
+      type: LOGICAL_DNS
+      dns_lookup_family: V4_ONLY
+      http2_protocol_options: {}
+      load_assignment:
+        cluster_name: user_service_cluster
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address:
+                      {
+                        address: user-service-$SERVICE_SUFFIX-em.a.run.app,
+                        port_value: 443,
+                      }
+      transport_socket:
+        name: envoy.transport_sockets.tls
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+
+    - name: driver_service_cluster
+      connect_timeout: 10s
+      type: LOGICAL_DNS
+      dns_lookup_family: V4_ONLY
+      http2_protocol_options: {}
+      load_assignment:
+        cluster_name: driver_service_cluster
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address:
+                      {
+                        address: driver-service-$SERVICE_SUFFIX-em.a.run.app,
+                        port_value: 443,
+                      }
+      transport_socket:
+        name: envoy.transport_sockets.tls
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+
+    - name: trip_service_cluster
+      connect_timeout: 10s
+      type: LOGICAL_DNS
+      dns_lookup_family: V4_ONLY
+      http2_protocol_options: {}
+      load_assignment:
+        cluster_name: trip_service_cluster
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address:
+                      {
+                        address: trip-service-$SERVICE_SUFFIX-em.a.run.app,
+                        port_value: 443,
+                      }
+      transport_socket:
+        name: envoy.transport_sockets.tls
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+
+    - name: marketplace_service_cluster
+      connect_timeout: 10s
+      type: LOGICAL_DNS
+      dns_lookup_family: V4_ONLY
+      http2_protocol_options: {}
+      load_assignment:
+        cluster_name: marketplace_service_cluster
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address:
+                      {
+                        address: marketplace-service-$SERVICE_SUFFIX-em.a.run.app,
+                        port_value: 443,
+                      }
+      transport_socket:
+        name: envoy.transport_sockets.tls
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+
+    - name: wallet_service_cluster
+      connect_timeout: 10s
+      type: LOGICAL_DNS
+      dns_lookup_family: V4_ONLY
+      http2_protocol_options: {}
+      load_assignment:
+        cluster_name: wallet_service_cluster
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address:
+                      {
+                        address: wallet-service-$SERVICE_SUFFIX-em.a.run.app,
+                        port_value: 443,
+                      }
+      transport_socket:
+        name: envoy.transport_sockets.tls
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+
+    - name: recharge_service_cluster
+      connect_timeout: 10s
+      type: LOGICAL_DNS
+      dns_lookup_family: V4_ONLY
+      http2_protocol_options: {}
+      load_assignment:
+        cluster_name: recharge_service_cluster
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address:
+                      {
+                        address: recharge-service-$SERVICE_SUFFIX-em.a.run.app,
+                        port_value: 443,
+                      }
+      transport_socket:
+        name: envoy.transport_sockets.tls
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+
+    - name: payout_service_cluster
+      connect_timeout: 10s
+      type: LOGICAL_DNS
+      dns_lookup_family: V4_ONLY
+      http2_protocol_options: {}
+      load_assignment:
+        cluster_name: payout_service_cluster
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address:
+                      {
+                        address: payout-service-$SERVICE_SUFFIX-em.a.run.app,
+                        port_value: 443,
+                      }
+      transport_socket:
+        name: envoy.transport_sockets.tls
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+
+    - name: notification_service_cluster
+      connect_timeout: 10s
+      type: LOGICAL_DNS
+      dns_lookup_family: V4_ONLY
+      http2_protocol_options: {}
+      load_assignment:
+        cluster_name: notification_service_cluster
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address:
+                      {
+                        address: notification-service-$SERVICE_SUFFIX-em.a.run.app,
+                        port_value: 443,
+                      }
+      transport_socket:
+        name: envoy.transport_sockets.tls
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+admin:
+  address:
+    socket_address:
+      address: 0.0.0.0
+      port_value: 9901

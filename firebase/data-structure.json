@@ -1,0 +1,202 @@
+{
+  // "rtdb": {
+  //   "eRickshaw": {
+  //     "driverId": {
+  //       "g": "String",
+  //       "l": [
+  //         "Number",
+  //         "Number"
+  //       ]
+  //     }
+  //   },
+  //   "activeDrivers": {
+  //     "driverId": {
+  //       "vehicleId": "String",
+  //       "vehicleNo": "String",
+  //       "vehicleType": "String",
+  //       "token": "String",
+  //       "queue": {},
+  //       "trips": {
+  //         "tripid": {
+  //           "status": "boolean",
+  //           "recievedAt": "Timestamp"
+  //         }
+  //       }
+  //     }
+  //   },
+  //   "orders": {
+  //     "createdAt": "Number",
+  //     "status": "Number",
+  //     "type": "String",
+  //     "vehicleType": "String",
+  //     "locations": {},
+  //     "user": {
+  //       "id": "String",
+  //       "name": "String",
+  //       "phone": "String",
+  //       "photoUrl": "String",
+  //       "token": "String"
+  //     },
+  //     "vehicle": {
+  //       "driverId": "String",
+  //       "vehicleNo": "String",
+  //       "vehicleType": "String",
+  //       "location": [
+  //         "Number",
+  //         "Number",
+  //         "String"
+  //       ],
+  //       "distance": "Number",
+  //       "name": "String",
+  //       "phone": "String",
+  //       "photoUrl": "String"
+  //     }
+  //   }
+  // },
+  "firestore": {
+    "users": {
+      "userId": {
+        "createdAt": "Timestamp",
+        "savedLocations": {
+          "locationName": {
+            "address": "String",
+            "location": "Geopoint",
+            "text": "String"
+          }
+        },
+        "token": "String"
+      }
+    },
+    "activeDrivers": {
+      "driverId": {
+        "vehicleId": "String",
+        "vehicleNumber": "String",
+        "vehicleType": "String",
+        "token": "String",
+        "capacity": "Number",
+        "tripOffers": {
+          "tripid": {
+            "accepted": false,
+            "expiresAt": "Timestamp",
+            "polyline": "String",
+            "locations": ["GeoPoint", "GeoPoint"]
+          }
+        },
+        "activeTrips": {
+          "tripid": {
+            "ref": "firestoreRef"
+          }
+        }
+      }
+    },
+    "vehicleType": {
+      "driverId": {
+        "g": {
+          "geohash": "String",
+          "geopoint": "GeoPoint"
+        },
+        "currentPathString": "String"
+      }
+    },
+    "partners": {
+      "partnerId": {
+        // "balance": "Number",
+        "createdAt": "Timestamp",
+        // "createdLocation": "Geopoint",
+        // "rechargedAt": "Timestamp",
+        "documents": {
+          "Document Name": "Firebase Strorage Ref"
+        },
+        "notificationToken": "String",
+        "vehicles": ["id"]
+      }
+    },
+    "vehicles": {
+      "createdAt": "Timestamp",
+      "documents": {
+        "Document Name": "Firebase Strorage Ref"
+      },
+      "ownerId": "String",
+      "driverId": "String",
+      "regNo": "String",
+      "type": "String"
+    },
+    "trips": {
+      "tripId": {
+        // "createdAt": "Timestamp",
+        "startAt": "Timestamp",
+        "endAt": "Timestamp",
+        "status": "String",
+        "polyline": "String",
+        "type": "String",
+        "walks": {
+          "pickup": {
+            "address": "String",
+            "location": "Geopoint"
+          },
+          "dropOff": {
+            "address": "String",
+            "location": "Geopoint"
+          }
+        },
+        "locations": {
+          "pickup": {
+            "address": "String",
+            "location": "Geopoint"
+          },
+          "dropOff": {
+            "address": "String",
+            "location": "Geopoint"
+          }
+        },
+        "driver": {
+          "id": "String",
+          "name": "String"
+        },
+        "passengers": "Number",
+        "user": {
+          "id": "String",
+          "name": "String"
+        },
+        "vehicle": {
+          "id": "String",
+          "vehicleNo": "Applied For"
+        },
+        "paymentMethod": "String",
+        "vehicleType": "String",
+        "cancelledBy": "user | driver"
+      }
+    },
+    "wallets": {
+      "walletId": {
+        "balance": "Number",
+        "uid": "String",
+        "createdAt": "Timestamp",
+        "updatedAt": "Timestamp"
+      }
+    },
+    "transactions": {
+      "transactionId": {
+        "accountId": "String",
+        "amount": "Number",
+        "timestamp": "Timestamp",
+        "type": "CREDIT | DEBIT",
+        "batchId": "String"
+      }
+    },
+    "recharges": {
+      "amount": "33.00",
+      "bank": "String",
+      "bankTxnId": "String",
+      "callbackAt": "Timestamp",
+      "createdAt": "Timestamp",
+      "gateway": "String",
+      "option": "String",
+      "partnerId": "5LKcJzrjT3QWWgMQtWtG84c1bkh1",
+      "paymentMode": "String",
+      "status": "success/failure",
+      "txnDate": "Timestamp",
+      "txnId": "String"
+    }
+  }
+}

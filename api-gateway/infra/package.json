@@ -1,0 +1,12 @@
+{
+  "name": "api-gateway",
+  "main": "index.ts",
+  "devDependencies": {
+    "@types/node": "20.9.1"
+  },
+  "dependencies": {
+    "@pulumi/docker": "^4.5.0",
+    "@pulumi/gcp": "^7.2.1",
+    "@pulumi/pulumi": "^3.95.0"
+  }
+}

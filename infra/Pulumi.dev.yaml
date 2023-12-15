@@ -1,0 +1,10 @@
+environment:
+  - dev
+config:
+  infra:projectName: Ride Dev
+  razorpay:accountNumber:
+    secure: AAABAGzNRsDSz8WDHj1JcZeqGbwOlrZG6UAbEaZS/NVTCGOVJtCL2R3jBbi6pA==
+  razorpay:key:
+    secure: AAABAEOsFB/AFCbd7oowx0Ltua44asH8MQ8UG2qGJV3yPNkgSxH1i4vdk3CksVIfETNvk/fRAA==
+  razorpay:secret:
+    secure: AAABALc/BSmzsaJQFKw949ATGLUVDoMBwlVXHJdPQOGxu6gtxBvlU8KVuGRNw+gdjHsWbBSbRFc=
