@@ -9,8 +9,8 @@ import { updateCloudBuildServiceAccount } from "./gcp/IAM/service-accounts/cloud
 import { createArtifactRegistry } from "./gcp/resources/artifact-registries";
 import { FirebaseProject } from "./gcp/resources/firebase";
 import { createSecrets } from "./gcp/resources/secrets";
-import { ServiceAccount } from "./gcp/commons/service-account";
-import { WorkloadIdentity } from "./gcp/commons/workload-identity";
+import { ServiceAccount } from "./gcp/components/service-account";
+import { WorkloadIdentity } from "./gcp/components/workload-identity";
 
 import { enableCloudRun } from "./gcp/apis/cloud-run";
 import { enableIam } from "./gcp/apis/iam";
