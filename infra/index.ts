@@ -1,8 +1,3 @@
-import * as gcp from "@pulumi/gcp";
-
-import { createArtifactRegistryServiceAccount } from "./gcp/IAM/service-accounts/artifact-registry";
-import { createCloudRunServiceManagerServiceAccount } from "./gcp/IAM/service-accounts/cloud-run-service-manager";
-import { createPulumiServiceAccount } from "./gcp/IAM/service-accounts/pulumi";
 import { updateDefaultComputeServiceAccount } from "./gcp/IAM/service-accounts/default-compute";
 import { updateCloudBuildServiceAccount } from "./gcp/IAM/service-accounts/cloud-build";
 
