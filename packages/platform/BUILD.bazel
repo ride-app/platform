@@ -3,7 +3,7 @@ load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 
 ts_project(
     name = "lib_ts",
-    srcs = ["src/index.ts"],
+    srcs = glob(["src/**/*.ts"]),
     declaration = True,
     out_dir = "dist",
     source_map = True,
@@ -17,7 +17,7 @@ ts_project(
 
 # make this library available via node_modules
 npm_package(
-    name = "platform",
+    name = "@ride-app/platform",
     srcs = [
         "package.json",
         ":lib_ts",
