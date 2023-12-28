@@ -1,5 +1,5 @@
 environment:
-  - prod
+  - platform-prod
 config:
   infra:projectName: Ride
   razorpay:accountNumber:

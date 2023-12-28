@@ -1,5 +1,5 @@
 environment:
-  - dev
+  - platform-dev
 config:
   infra:projectName: Ride Dev
   razorpay:accountNumber:

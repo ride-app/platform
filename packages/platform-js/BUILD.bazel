@@ -1,0 +1,26 @@
+load("@aspect_rules_js//npm:defs.bzl", "npm_package")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+
+ts_project(
+    name = "lib_ts",
+    srcs = glob(["src/**/*.ts"]),
+    declaration = True,
+    out_dir = "dist",
+    source_map = True,
+    tsconfig = "//:tsconfig",
+    deps = [
+        "//:node_modules/@pulumi/gcp",
+        "//:node_modules/@pulumi/pulumi",
+        "//:node_modules/@types/node",
+    ],
+)
+
+# make this library available via node_modules
+npm_package(
+    name = "platform",
+    srcs = [
+        "package.json",
+        ":lib_ts",
+    ],
+    visibility = ["//visibility:public"],
+)
