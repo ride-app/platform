@@ -1,0 +1,25 @@
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
+
+ts_config(
+    name = "tsconfig",
+    src = "tsconfig.json",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//:node_modules/@tsconfig/node-lts",
+        "//:node_modules/@tsconfig/strictest",
+    ],
+)
+
+ts_project(
+    name = "lib_ts",
+    srcs = glob(["**/*.ts"]),
+    out_dir = "bin",
+    source_map = True,
+    tsconfig = "//infra:tsconfig",
+    validate = False,
+    deps = [
+        "//:node_modules/@pulumi/gcp",
+        "//:node_modules/@pulumi/pulumi",
+        "//:node_modules/@types/node",
+    ],
+)
