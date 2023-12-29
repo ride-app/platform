@@ -1,11 +1,11 @@
 {
   "devDependencies": {
-    "@types/node": "20.10.3",
-    "@tsconfig/node-lts": "^20.0.0",
-    "@tsconfig/strictest": "^2.0.2"
+    "@tsconfig/node-lts": "^20.1.0",
+    "@tsconfig/strictest": "^2.0.2",
+    "@types/node": "20.10.3"
   },
   "dependencies": {
-    "@pulumi/gcp": "^7.0.0",
-    "@pulumi/pulumi": "^3.95.0"
+    "@pulumi/gcp": "^7.4.0",
+    "@pulumi/pulumi": "^3.99.0"
   }
 }
