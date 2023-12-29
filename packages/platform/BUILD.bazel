@@ -17,7 +17,7 @@ ts_project(
 
 # make this library available via node_modules
 npm_package(
-    name = "@ride-app/platform",
+    name = "platform",
     srcs = [
         "package.json",
         ":lib_ts",
