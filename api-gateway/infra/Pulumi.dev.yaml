@@ -1,5 +1,5 @@
 environment:
-  - dev
+  - platform-dev
 config:
   domain: dev.api.rideapp.in
   serviceSuffix: gbbsdms5pq

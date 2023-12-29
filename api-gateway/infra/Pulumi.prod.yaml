@@ -1,5 +1,5 @@
 environment:
-  - prod
+  - platform-prod
 config:
   domain: api.rideapp.in
   serviceSuffix: 5iepetd3bq
