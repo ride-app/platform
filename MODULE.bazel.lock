@@ -1738,7 +1738,7 @@
     },
     "@@aspect_bazel_lib~1.39.0//lib:extensions.bzl%toolchains": {
       "general": {
-        "bzlTransitiveDigest": "WVp3ybiDkruezsKcenFVzaWS3Ur1RoVs9zg++bcDIy4=",
+        "bzlTransitiveDigest": "JfC/BQZIo8ej1YGTTPrLCDJr1eua5syQ5GaQ9Q/yHZ8=",
         "accumulatedFileDigests": {},
         "envVariables": {},
         "generatedRepoSpecs": {
@@ -2100,7 +2100,7 @@
         "bzlTransitiveDigest": "QrVtsx0SW+hgQjjyI6rmtlQLqhNam9/L+wbfT96L99c=",
         "accumulatedFileDigests": {
           "@@//:.npmrc": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "@@//:pnpm-lock.yaml": "16eefe438f377634f8ad3bb782e69be53e4eb465448e7868daa49f5197827861"
+          "@@//:pnpm-lock.yaml": "5f5c6276340a1a39b6010f1d078c46cf758abe8a6e3e955536c82b53491ad61b"
         },
         "envVariables": {},
         "generatedRepoSpecs": {
@@ -2542,7 +2542,7 @@
               "link_packages": {},
               "deps": {
                 "@types/mime": "1.3.5",
-                "@types/node": "20.10.3"
+                "@types/node": "20.10.5"
               },
               "transitive_closure": {
                 "@types/send": [
@@ -2552,7 +2552,7 @@
                   "1.3.5"
                 ],
                 "@types/node": [
-                  "20.10.3"
+                  "20.10.5"
                 ],
                 "undici-types": [
                   "5.26.5"
@@ -2676,7 +2676,7 @@
                   "1.1.0"
                 ],
                 "@types/node": [
-                  "20.10.3"
+                  "20.10.5"
                 ],
                 "undici-types": [
                   "5.26.5"
@@ -3452,7 +3452,7 @@
               "link_packages": {},
               "deps": {
                 "@types/connect": "3.4.38",
-                "@types/node": "20.10.3"
+                "@types/node": "20.10.5"
               },
               "transitive_closure": {
                 "@types/body-parser": [
@@ -3462,7 +3462,7 @@
                   "3.4.38"
                 ],
                 "@types/node": [
-                  "20.10.3"
+                  "20.10.5"
                 ],
                 "undici-types": [
                   "5.26.5"
@@ -3591,7 +3591,7 @@
               "root_package": "",
               "link_packages": {},
               "deps": {
-                "@types/node": "20.10.3",
+                "@types/node": "20.10.5",
                 "@types/qs": "6.9.11",
                 "@types/range-parser": "1.2.7",
                 "@types/send": "0.17.4"
@@ -3601,7 +3601,7 @@
                   "4.17.41"
                 ],
                 "@types/node": [
-                  "20.10.3"
+                  "20.10.5"
                 ],
                 "@types/qs": [
                   "6.9.11"
@@ -4457,6 +4457,9 @@
               "link_workspace": "",
               "link_packages": {
                 "": [
+                  "@pulumi/pulumi"
+                ],
+                "infra": [
                   "@pulumi/pulumi"
                 ]
               },
@@ -6932,6 +6935,9 @@
               "link_packages": {
                 "": [
                   "@pulumi/gcp"
+                ],
+                "infra": [
+                  "@pulumi/gcp"
                 ]
               },
               "deps": {
@@ -7056,7 +7062,7 @@
                   "3.0.4"
                 ],
                 "@types/node": [
-                  "20.10.3"
+                  "20.10.5"
                 ],
                 "undici-types": [
                   "5.26.5"
@@ -7870,41 +7876,6 @@
               ]
             }
           },
-          "npm__at_types_node__20.10.3__links": {
-            "bzlFile": "@@aspect_rules_js~1.34.1//npm/private:npm_import.bzl",
-            "ruleClassName": "npm_import_links",
-            "attributes": {
-              "name": "aspect_rules_js~1.34.1~npm~npm__at_types_node__20.10.3__links",
-              "package": "@types/node",
-              "version": "20.10.3",
-              "dev": false,
-              "root_package": "",
-              "link_packages": {
-                "": [
-                  "@types/node"
-                ]
-              },
-              "deps": {
-                "undici-types": "5.26.5"
-              },
-              "transitive_closure": {
-                "@types/node": [
-                  "20.10.3"
-                ],
-                "undici-types": [
-                  "5.26.5"
-                ]
-              },
-              "lifecycle_build_target": false,
-              "lifecycle_hooks_env": [],
-              "lifecycle_hooks_execution_requirements": [],
-              "bins": {},
-              "npm_translate_lock_repo": "npm",
-              "package_visibility": [
-                "//visibility:public"
-              ]
-            }
-          },
           "npm__argparse__1.0.10__links": {
             "bzlFile": "@@aspect_rules_js~1.34.1//npm/private:npm_import.bzl",
             "ruleClassName": "npm_import_links",
@@ -8101,7 +8072,7 @@
               "deps": {
                 "@types/http-errors": "2.0.4",
                 "@types/mime": "3.0.4",
-                "@types/node": "20.10.3"
+                "@types/node": "20.10.5"
               },
               "transitive_closure": {
                 "@types/serve-static": [
@@ -8114,7 +8085,7 @@
                   "3.0.4"
                 ],
                 "@types/node": [
-                  "20.10.3"
+                  "20.10.5"
                 ],
                 "undici-types": [
                   "5.26.5"
@@ -12053,6 +12024,9 @@
               "link_packages": {
                 "": [
                   "@pulumi/gcp"
+                ],
+                "infra": [
+                  "@pulumi/gcp"
                 ]
               },
               "integrity": "sha512-PNeBLZJ/GQFA/GYENwo9Eghu9/OB6tH9g6AWVt0ytaMztOC5aTzsS9ncbG60P0/tf14W9wG5+wCMnsZGbsaxLA==",
@@ -12819,35 +12793,6 @@
               ]
             }
           },
-          "npm__at_types_node__20.10.3": {
-            "bzlFile": "@@aspect_rules_js~1.34.1//npm/private:npm_import.bzl",
-            "ruleClassName": "npm_import_rule",
-            "attributes": {
-              "name": "aspect_rules_js~1.34.1~npm~npm__at_types_node__20.10.3",
-              "package": "@types/node",
-              "version": "20.10.3",
-              "root_package": "",
-              "link_workspace": "",
-              "link_packages": {
-                "": [
-                  "@types/node"
-                ]
-              },
-              "integrity": "sha512-XJavIpZqiXID5Yxnxv3RUDKTN5b81ddNC3ecsA0SoFXz/QU8OGBwZGMomiq0zw+uuqbL/krztv/DINAQ/EV4gg==",
-              "url": "https://registry.npmjs.org/@types/node/-/node-20.10.3.tgz",
-              "commit": "",
-              "patch_args": [],
-              "patches": [],
-              "custom_postinstall": "",
-              "npm_auth": "",
-              "npm_auth_basic": "",
-              "npm_auth_username": "",
-              "npm_auth_password": "",
-              "lifecycle_hooks": [],
-              "extra_build_content": "",
-              "generate_bzl_library_targets": false
-            }
-          },
           "npm__at_opentelemetry_context-async-hooks__1.19.0__at_opentelemetry_api_1.7.0__links": {
             "bzlFile": "@@aspect_rules_js~1.34.1//npm/private:npm_import.bzl",
             "ruleClassName": "npm_import_links",
@@ -13075,6 +13020,38 @@
               "package_visibility": [
                 "//visibility:public"
               ]
+            }
+          },
+          "npm__at_types_node__20.10.5": {
+            "bzlFile": "@@aspect_rules_js~1.34.1//npm/private:npm_import.bzl",
+            "ruleClassName": "npm_import_rule",
+            "attributes": {
+              "name": "aspect_rules_js~1.34.1~npm~npm__at_types_node__20.10.5",
+              "package": "@types/node",
+              "version": "20.10.5",
+              "root_package": "",
+              "link_workspace": "",
+              "link_packages": {
+                "": [
+                  "@types/node"
+                ],
+                "infra": [
+                  "@types/node"
+                ]
+              },
+              "integrity": "sha512-nNPsNE65wjMxEKI93yOP+NPGGBJz/PoN3kZsVLee0XMiJolxSekEVD8wRwBUBqkwc7UWop0edW50yrCQW4CyRw==",
+              "url": "https://registry.npmjs.org/@types/node/-/node-20.10.5.tgz",
+              "commit": "",
+              "patch_args": [],
+              "patches": [],
+              "custom_postinstall": "",
+              "npm_auth": "",
+              "npm_auth_basic": "",
+              "npm_auth_username": "",
+              "npm_auth_password": "",
+              "lifecycle_hooks": [],
+              "extra_build_content": "",
+              "generate_bzl_library_targets": false
             }
           },
           "npm__at_logdna_tail-file__2.2.0__links": {
@@ -13681,14 +13658,14 @@
               "root_package": "",
               "link_packages": {},
               "deps": {
-                "@types/node": "20.10.3"
+                "@types/node": "20.10.5"
               },
               "transitive_closure": {
                 "@types/connect": [
                   "3.4.38"
                 ],
                 "@types/node": [
-                  "20.10.3"
+                  "20.10.5"
                 ],
                 "undici-types": [
                   "5.26.5"
@@ -15463,7 +15440,7 @@
                 "@protobufjs/path": "1.1.2",
                 "@protobufjs/pool": "1.1.0",
                 "@protobufjs/utf8": "1.1.0",
-                "@types/node": "20.10.3",
+                "@types/node": "20.10.5",
                 "long": "5.2.3"
               },
               "transitive_closure": {
@@ -15501,7 +15478,7 @@
                   "1.1.0"
                 ],
                 "@types/node": [
-                  "20.10.3"
+                  "20.10.5"
                 ],
                 "long": [
                   "5.2.3"
@@ -16231,6 +16208,9 @@
               "link_packages": {
                 "": [
                   "@pulumi/pulumi"
+                ],
+                "infra": [
+                  "@pulumi/pulumi"
                 ]
               },
               "deps": {
@@ -16750,7 +16730,7 @@
                   "0.7.10"
                 ],
                 "@types/node": [
-                  "20.10.3"
+                  "20.10.5"
                 ],
                 "undici-types": [
                   "5.26.5"
@@ -17041,7 +17021,7 @@
               "link_packages": {},
               "deps": {
                 "@grpc/proto-loader": "0.7.10",
-                "@types/node": "20.10.3"
+                "@types/node": "20.10.5"
               },
               "transitive_closure": {
                 "@grpc/grpc-js": [
@@ -17051,7 +17031,7 @@
                   "0.7.10"
                 ],
                 "@types/node": [
-                  "20.10.3"
+                  "20.10.5"
                 ],
                 "undici-types": [
                   "5.26.5"
@@ -17885,7 +17865,7 @@
                   "3.0.4"
                 ],
                 "@types/node": [
-                  "20.10.3"
+                  "20.10.5"
                 ],
                 "undici-types": [
                   "5.26.5"
@@ -17979,6 +17959,44 @@
                 ],
                 "shebang-regex": [
                   "3.0.0"
+                ]
+              },
+              "lifecycle_build_target": false,
+              "lifecycle_hooks_env": [],
+              "lifecycle_hooks_execution_requirements": [],
+              "bins": {},
+              "npm_translate_lock_repo": "npm",
+              "package_visibility": [
+                "//visibility:public"
+              ]
+            }
+          },
+          "npm__at_types_node__20.10.5__links": {
+            "bzlFile": "@@aspect_rules_js~1.34.1//npm/private:npm_import.bzl",
+            "ruleClassName": "npm_import_links",
+            "attributes": {
+              "name": "aspect_rules_js~1.34.1~npm~npm__at_types_node__20.10.5__links",
+              "package": "@types/node",
+              "version": "20.10.5",
+              "dev": false,
+              "root_package": "",
+              "link_packages": {
+                "": [
+                  "@types/node"
+                ],
+                "infra": [
+                  "@types/node"
+                ]
+              },
+              "deps": {
+                "undici-types": "5.26.5"
+              },
+              "transitive_closure": {
+                "@types/node": [
+                  "20.10.5"
+                ],
+                "undici-types": [
+                  "5.26.5"
                 ]
               },
               "lifecycle_build_target": false,
@@ -19693,6 +19711,359 @@
               "name": "rules_nodejs~6.0.2~node~nodejs_darwin_arm64",
               "platform": "darwin_arm64",
               "node_version": "18.18.0"
+            }
+          }
+        }
+      }
+    },
+    "@@rules_oci~1.5.1//oci:extensions.bzl%oci": {
+      "general": {
+        "bzlTransitiveDigest": "97dtIf8mj21hQvOKbTgER+jz0qLKEBcD5d/y5fyMISU=",
+        "accumulatedFileDigests": {},
+        "envVariables": {},
+        "generatedRepoSpecs": {
+          "oci_crane_registry_toolchains": {
+            "bzlFile": "@@rules_oci~1.5.1//oci/private:toolchains_repo.bzl",
+            "ruleClassName": "toolchains_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_crane_registry_toolchains",
+              "toolchain_type": "@rules_oci//oci:registry_toolchain_type",
+              "toolchain": "@oci_crane_{platform}//:registry_toolchain"
+            }
+          },
+          "copy_to_directory_windows_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:copy_to_directory_toolchain.bzl",
+            "ruleClassName": "copy_to_directory_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~copy_to_directory_windows_amd64",
+              "platform": "windows_amd64"
+            }
+          },
+          "jq": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:jq_toolchain.bzl",
+            "ruleClassName": "jq_host_alias_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~jq"
+            }
+          },
+          "oci_crane_darwin_amd64": {
+            "bzlFile": "@@rules_oci~1.5.1//oci:repositories.bzl",
+            "ruleClassName": "crane_repositories",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_crane_darwin_amd64",
+              "platform": "darwin_amd64",
+              "crane_version": "v0.17.0"
+            }
+          },
+          "jq_darwin_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:jq_toolchain.bzl",
+            "ruleClassName": "jq_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~jq_darwin_amd64",
+              "platform": "darwin_amd64",
+              "version": "1.6"
+            }
+          },
+          "copy_to_directory_freebsd_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:copy_to_directory_toolchain.bzl",
+            "ruleClassName": "copy_to_directory_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~copy_to_directory_freebsd_amd64",
+              "platform": "freebsd_amd64"
+            }
+          },
+          "copy_to_directory_linux_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:copy_to_directory_toolchain.bzl",
+            "ruleClassName": "copy_to_directory_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~copy_to_directory_linux_amd64",
+              "platform": "linux_amd64"
+            }
+          },
+          "oci_crane_linux_arm64": {
+            "bzlFile": "@@rules_oci~1.5.1//oci:repositories.bzl",
+            "ruleClassName": "crane_repositories",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_crane_linux_arm64",
+              "platform": "linux_arm64",
+              "crane_version": "v0.17.0"
+            }
+          },
+          "coreutils_darwin_arm64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:coreutils_toolchain.bzl",
+            "ruleClassName": "coreutils_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~coreutils_darwin_arm64",
+              "platform": "darwin_arm64",
+              "version": "0.0.16"
+            }
+          },
+          "coreutils_linux_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:coreutils_toolchain.bzl",
+            "ruleClassName": "coreutils_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~coreutils_linux_amd64",
+              "platform": "linux_amd64",
+              "version": "0.0.16"
+            }
+          },
+          "yq_linux_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:yq_toolchain.bzl",
+            "ruleClassName": "yq_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~yq_linux_amd64",
+              "platform": "linux_amd64",
+              "version": "4.25.2"
+            }
+          },
+          "copy_to_directory_linux_arm64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:copy_to_directory_toolchain.bzl",
+            "ruleClassName": "copy_to_directory_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~copy_to_directory_linux_arm64",
+              "platform": "linux_arm64"
+            }
+          },
+          "oci_crane_linux_armv6": {
+            "bzlFile": "@@rules_oci~1.5.1//oci:repositories.bzl",
+            "ruleClassName": "crane_repositories",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_crane_linux_armv6",
+              "platform": "linux_armv6",
+              "crane_version": "v0.17.0"
+            }
+          },
+          "copy_to_directory_darwin_arm64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:copy_to_directory_toolchain.bzl",
+            "ruleClassName": "copy_to_directory_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~copy_to_directory_darwin_arm64",
+              "platform": "darwin_arm64"
+            }
+          },
+          "oci_crane_linux_amd64": {
+            "bzlFile": "@@rules_oci~1.5.1//oci:repositories.bzl",
+            "ruleClassName": "crane_repositories",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_crane_linux_amd64",
+              "platform": "linux_amd64",
+              "crane_version": "v0.17.0"
+            }
+          },
+          "coreutils_darwin_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:coreutils_toolchain.bzl",
+            "ruleClassName": "coreutils_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~coreutils_darwin_amd64",
+              "platform": "darwin_amd64",
+              "version": "0.0.16"
+            }
+          },
+          "coreutils_linux_arm64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:coreutils_toolchain.bzl",
+            "ruleClassName": "coreutils_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~coreutils_linux_arm64",
+              "platform": "linux_arm64",
+              "version": "0.0.16"
+            }
+          },
+          "coreutils_toolchains": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:coreutils_toolchain.bzl",
+            "ruleClassName": "coreutils_toolchains_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~coreutils_toolchains",
+              "user_repository_name": "coreutils"
+            }
+          },
+          "yq_linux_s390x": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:yq_toolchain.bzl",
+            "ruleClassName": "yq_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~yq_linux_s390x",
+              "platform": "linux_s390x",
+              "version": "4.25.2"
+            }
+          },
+          "yq": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:yq_toolchain.bzl",
+            "ruleClassName": "yq_host_alias_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~yq"
+            }
+          },
+          "oci_crane_darwin_arm64": {
+            "bzlFile": "@@rules_oci~1.5.1//oci:repositories.bzl",
+            "ruleClassName": "crane_repositories",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_crane_darwin_arm64",
+              "platform": "darwin_arm64",
+              "crane_version": "v0.17.0"
+            }
+          },
+          "jq_darwin_arm64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:jq_toolchain.bzl",
+            "ruleClassName": "jq_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~jq_darwin_arm64",
+              "platform": "darwin_arm64",
+              "version": "1.6"
+            }
+          },
+          "yq_darwin_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:yq_toolchain.bzl",
+            "ruleClassName": "yq_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~yq_darwin_amd64",
+              "platform": "darwin_amd64",
+              "version": "4.25.2"
+            }
+          },
+          "oci_crane_linux_i386": {
+            "bzlFile": "@@rules_oci~1.5.1//oci:repositories.bzl",
+            "ruleClassName": "crane_repositories",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_crane_linux_i386",
+              "platform": "linux_i386",
+              "crane_version": "v0.17.0"
+            }
+          },
+          "jq_linux_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:jq_toolchain.bzl",
+            "ruleClassName": "jq_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~jq_linux_amd64",
+              "platform": "linux_amd64",
+              "version": "1.6"
+            }
+          },
+          "yq_windows_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:yq_toolchain.bzl",
+            "ruleClassName": "yq_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~yq_windows_amd64",
+              "platform": "windows_amd64",
+              "version": "4.25.2"
+            }
+          },
+          "oci_crane_windows_armv6": {
+            "bzlFile": "@@rules_oci~1.5.1//oci:repositories.bzl",
+            "ruleClassName": "crane_repositories",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_crane_windows_armv6",
+              "platform": "windows_armv6",
+              "crane_version": "v0.17.0"
+            }
+          },
+          "oci_crane_toolchains": {
+            "bzlFile": "@@rules_oci~1.5.1//oci/private:toolchains_repo.bzl",
+            "ruleClassName": "toolchains_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_crane_toolchains",
+              "toolchain_type": "@rules_oci//oci:crane_toolchain_type",
+              "toolchain": "@oci_crane_{platform}//:crane_toolchain"
+            }
+          },
+          "jq_windows_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:jq_toolchain.bzl",
+            "ruleClassName": "jq_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~jq_windows_amd64",
+              "platform": "windows_amd64",
+              "version": "1.6"
+            }
+          },
+          "copy_to_directory_darwin_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:copy_to_directory_toolchain.bzl",
+            "ruleClassName": "copy_to_directory_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~copy_to_directory_darwin_amd64",
+              "platform": "darwin_amd64"
+            }
+          },
+          "yq_linux_ppc64le": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:yq_toolchain.bzl",
+            "ruleClassName": "yq_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~yq_linux_ppc64le",
+              "platform": "linux_ppc64le",
+              "version": "4.25.2"
+            }
+          },
+          "jq_toolchains": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:jq_toolchain.bzl",
+            "ruleClassName": "jq_toolchains_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~jq_toolchains",
+              "user_repository_name": "jq"
+            }
+          },
+          "copy_to_directory_toolchains": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:copy_to_directory_toolchain.bzl",
+            "ruleClassName": "copy_to_directory_toolchains_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~copy_to_directory_toolchains",
+              "user_repository_name": "copy_to_directory"
+            }
+          },
+          "yq_darwin_arm64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:yq_toolchain.bzl",
+            "ruleClassName": "yq_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~yq_darwin_arm64",
+              "platform": "darwin_arm64",
+              "version": "4.25.2"
+            }
+          },
+          "yq_toolchains": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:yq_toolchain.bzl",
+            "ruleClassName": "yq_toolchains_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~yq_toolchains",
+              "user_repository_name": "yq"
+            }
+          },
+          "oci_crane_windows_amd64": {
+            "bzlFile": "@@rules_oci~1.5.1//oci:repositories.bzl",
+            "ruleClassName": "crane_repositories",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_crane_windows_amd64",
+              "platform": "windows_amd64",
+              "crane_version": "v0.17.0"
+            }
+          },
+          "oci_crane_linux_s390x": {
+            "bzlFile": "@@rules_oci~1.5.1//oci:repositories.bzl",
+            "ruleClassName": "crane_repositories",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_crane_linux_s390x",
+              "platform": "linux_s390x",
+              "crane_version": "v0.17.0"
+            }
+          },
+          "oci_auth_config": {
+            "bzlFile": "@@rules_oci~1.5.1//oci/private:auth_config_locator.bzl",
+            "ruleClassName": "oci_auth_config_locator",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~oci_auth_config"
+            }
+          },
+          "coreutils_windows_amd64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:coreutils_toolchain.bzl",
+            "ruleClassName": "coreutils_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~coreutils_windows_amd64",
+              "platform": "windows_amd64",
+              "version": "0.0.16"
+            }
+          },
+          "yq_linux_arm64": {
+            "bzlFile": "@@aspect_bazel_lib~1.39.0//lib/private:yq_toolchain.bzl",
+            "ruleClassName": "yq_platform_repo",
+            "attributes": {
+              "name": "rules_oci~1.5.1~oci~yq_linux_arm64",
+              "platform": "linux_arm64",
+              "version": "4.25.2"
             }
           }
         }

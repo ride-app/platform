@@ -1,1 +1,3 @@
 node_modules
+infra/node_modules
+packages/platform/node_modules
