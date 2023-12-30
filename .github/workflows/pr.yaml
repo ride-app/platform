@@ -1,0 +1,45 @@
+name: PR
+
+permissions: read-all
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    name: Build
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+      - name: Cache Bazel
+        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3
+        with:
+          path: |
+            ~/.cache/bazel
+          key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
+          restore-keys: |
+            ${{ runner.os }}-bazel-
+
+      - name: Build
+        run: bazelisk build //...
+
+  compute_impacted_targets:
+    timeout-minutes: 10
+    name: Compute Impacted Targets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+      - name: Compute Impacted Targets
+        uses: trunk-io/merge-action@6a6b8568cb140a4d11bb9be876bdcf9c21094e5b # v1
+        with:
+          # Use your Trunk repo or org API token to authenticate impacted targets uploads.
+          # This secret should be provided as a GitHub secret.
+          # See https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions.
+          trunk-token: ${{ secrets.TRUNK_TOKEN }}

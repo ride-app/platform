@@ -1,19 +1,29 @@
 name: Merge
 
+permissions: read-all
+
 on:
   push:
     branches:
       - trunk-merge/**
 
-env:
-  SERVICE_NAME: api-gateway
-
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    name: Build
     steps:
       - name: Checkout Code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
-      - name: Lint
-        uses: trunk-io/trunk-action@97ecd21fe6c743bf7a606791584b683a7995c70e # v1
+      - name: Cache Bazel
+        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3
+        with:
+          path: |
+            ~/.cache/bazel
+          key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
+          restore-keys: |
+            ${{ runner.os }}-bazel-
+
+      - name: Build
+        run: bazelisk build //...
