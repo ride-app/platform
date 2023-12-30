@@ -25,18 +25,7 @@ importers:
         specifier: 20.10.5
         version: 20.10.5
 
-  infra:
-    dependencies:
-      '@pulumi/gcp':
-        specifier: ^7.0.0
-        version: 7.4.0
-      '@pulumi/pulumi':
-        specifier: ^3.95.0
-        version: 3.99.0
-    devDependencies:
-      '@types/node':
-        specifier: 20.10.5
-        version: 20.10.5
+  infra: {}
 
   packages/platform: {}
 
