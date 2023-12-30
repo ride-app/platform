@@ -1,6 +1,7 @@
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
 load("@gazelle//:def.bzl", "gazelle")
 load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@npm//:repositories.bzl", "npm_repositories")
 
 # gazelle:prefix github.com/ride-app/platform
 # gazelle:build_file_name BUILD.bazel
@@ -10,6 +11,8 @@ gazelle(
 )
 
 npm_link_all_packages(name = "node_modules")
+
+npm_repositories()
 
 ts_config(
     name = "tsconfig",
