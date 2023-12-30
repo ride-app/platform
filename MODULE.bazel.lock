@@ -2100,7 +2100,7 @@
         "bzlTransitiveDigest": "QrVtsx0SW+hgQjjyI6rmtlQLqhNam9/L+wbfT96L99c=",
         "accumulatedFileDigests": {
           "@@//:.npmrc": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "@@//:pnpm-lock.yaml": "dce3086231a8a7495a6380df1df10de48d7f1aff09b30c900ab4e243a1a69ad7"
+          "@@//:pnpm-lock.yaml": "dc19cc9aa33fb4db3e380c6bdd88d02c4d0a68ae4891d5f1b00446c3adf437c7"
         },
         "envVariables": {},
         "generatedRepoSpecs": {

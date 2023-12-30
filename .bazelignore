@@ -1,3 +1,4 @@
 node_modules
 infra/node_modules
 packages/platform/node_modules
+api-gateway/infra/node_modules
