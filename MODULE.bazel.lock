@@ -2100,7 +2100,7 @@
         "bzlTransitiveDigest": "QrVtsx0SW+hgQjjyI6rmtlQLqhNam9/L+wbfT96L99c=",
         "accumulatedFileDigests": {
           "@@//:.npmrc": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "@@//:pnpm-lock.yaml": "5f5c6276340a1a39b6010f1d078c46cf758abe8a6e3e955536c82b53491ad61b"
+          "@@//:pnpm-lock.yaml": "dce3086231a8a7495a6380df1df10de48d7f1aff09b30c900ab4e243a1a69ad7"
         },
         "envVariables": {},
         "generatedRepoSpecs": {
@@ -4457,9 +4457,6 @@
               "link_workspace": "",
               "link_packages": {
                 "": [
-                  "@pulumi/pulumi"
-                ],
-                "infra": [
                   "@pulumi/pulumi"
                 ]
               },
@@ -6934,9 +6931,6 @@
               "root_package": "",
               "link_packages": {
                 "": [
-                  "@pulumi/gcp"
-                ],
-                "infra": [
                   "@pulumi/gcp"
                 ]
               },
@@ -12024,9 +12018,6 @@
               "link_packages": {
                 "": [
                   "@pulumi/gcp"
-                ],
-                "infra": [
-                  "@pulumi/gcp"
                 ]
               },
               "integrity": "sha512-PNeBLZJ/GQFA/GYENwo9Eghu9/OB6tH9g6AWVt0ytaMztOC5aTzsS9ncbG60P0/tf14W9wG5+wCMnsZGbsaxLA==",
@@ -13033,9 +13024,6 @@
               "link_workspace": "",
               "link_packages": {
                 "": [
-                  "@types/node"
-                ],
-                "infra": [
                   "@types/node"
                 ]
               },
@@ -16208,9 +16196,6 @@
               "link_packages": {
                 "": [
                   "@pulumi/pulumi"
-                ],
-                "infra": [
-                  "@pulumi/pulumi"
                 ]
               },
               "deps": {
@@ -17982,9 +17967,6 @@
               "root_package": "",
               "link_packages": {
                 "": [
-                  "@types/node"
-                ],
-                "infra": [
                   "@types/node"
                 ]
               },
