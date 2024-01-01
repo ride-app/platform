@@ -45,4 +45,4 @@ tools:
     - bazel@7.0.0
 merge:
   required_statuses:
-    - lint
+    - Build
