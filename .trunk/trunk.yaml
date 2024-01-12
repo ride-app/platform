@@ -19,9 +19,9 @@ runtimes:
 lint:
   enabled:
     - buildifier@6.4.0
-    - renovate@37.127.0
+    - renovate@37.128.3
     - actionlint@1.6.26
-    - checkov@3.1.56
+    - checkov@3.1.57
     - git-diff-check
     - gofmt@1.20.4
     - golangci-lint@1.55.2
