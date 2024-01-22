@@ -1,7 +1,7 @@
 FROM alpine:3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48 as builder
 WORKDIR /app
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
-RUN apk add --no-cache gettext=0.21.1-r7
+RUN apk add --no-cache gettext=0.22.3-r0
 
 ENV PORT 8080
 ARG HOSTNAME
