@@ -13,7 +13,7 @@ const github_connection = gcp.cloudbuildv2.Connection.get(
 const repository = new gcp.cloudbuildv2.Repository("repository", {
   location,
   parentConnection: github_connection.name,
-  remoteUri: "https://github.com/ride-app/api-gateway.git",
+  remoteUri: "https://github.com/ride-app/platform.git",
 });
 
 new gcp.cloudbuild.Trigger("build-trigger", {
@@ -24,7 +24,7 @@ new gcp.cloudbuild.Trigger("build-trigger", {
       branch: "^main$",
     },
   },
-  filename: "cloudbuild.yaml",
+  filename: "api-gateway/cloudbuild.yaml",
   substitutions: {
     _SERVICE_SUFFIX: new pulumi.Config().require("serviceSuffix"),
     _DOMAIN: new pulumi.Config().require("domain"),
