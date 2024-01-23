@@ -27,7 +27,7 @@ const pulumiSvcAcc = new ServiceAccount(
     roles: [
       "roles/editor",
       "roles/resourcemanager.projectIamAdmin",
-      "roles/secretmanager.secretAccessor",
+      "roles/secretmanager.admin",
     ],
   },
   {
