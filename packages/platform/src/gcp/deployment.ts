@@ -5,9 +5,10 @@ export class AppDeployment extends pulumi.ComponentResource {
   constructor(
     name: string,
     args: {
-      deploymentName: pulumi.Input<string>;
+      repo: pulumi.Input<string>;
+      branch?: pulumi.Input<string>;
       location: pulumi.Input<string>;
-      cloudBuildFile: pulumi.Input<string>;
+      cloudBuildFile?: pulumi.Input<string>;
       substitutions?: pulumi.Input<{
         [key: string]: pulumi.Input<string>;
       }>;
@@ -24,7 +25,7 @@ export class AppDeployment extends pulumi.ComponentResource {
     const repository = new gcp.cloudbuildv2.Repository("repository", {
       location: args.location,
       parentConnection: github_connection.name,
-      remoteUri: pulumi.interpolate`https://github.com/ride-app/${args.deploymentName}.git`,
+      remoteUri: pulumi.interpolate`https://github.com/${args.repo}.git`,
     });
 
     new gcp.cloudbuild.Trigger("build-trigger", {
@@ -32,11 +33,11 @@ export class AppDeployment extends pulumi.ComponentResource {
       repositoryEventConfig: {
         repository: repository.id,
         push: {
-          branch: "^main$",
+          branch: `^${args.branch ?? "main"}$`,
         },
       },
       substitutions: args.substitutions,
-      filename: "cloudbuild.yaml",
+      filename: args.cloudBuildFile ?? "cloudbuild.yaml",
       includeBuildLogs: "INCLUDE_BUILD_LOGS_WITH_STATUS",
     });
   }
