@@ -10,18 +10,30 @@ export function createSecrets(dependsOn?: pulumi.Resource[]) {
   const razorpayConfig = new pulumi.Config("razorpay");
 
   // Create a new secret for Razorpay key.
-  const razorpayKey = new gcp.secretmanager.Secret("razorpay-key", {
-    secretId: "razorpay-key",
-    replication: {
-      auto: {},
+  const razorpayKey = new gcp.secretmanager.Secret(
+    "razorpay-key",
+    {
+      secretId: "razorpay-key",
+      replication: {
+        auto: {},
+      },
     },
-  });
+    {
+      dependsOn,
+    },
+  );
 
   // Create a new version of the Razorpay key secret.
-  new gcp.secretmanager.SecretVersion("razorpay-key-version", {
-    secret: razorpayKey.id,
-    secretData: razorpayConfig.requireSecret("key"),
-  });
+  new gcp.secretmanager.SecretVersion(
+    "razorpay-key-version",
+    {
+      secret: razorpayKey.id,
+      secretData: razorpayConfig.requireSecret("key"),
+    },
+    {
+      parent: razorpayKey,
+    },
+  );
 
   // Create a new secret for Razorpay secret.
   const razorpaySecret = new gcp.secretmanager.Secret(
@@ -38,10 +50,16 @@ export function createSecrets(dependsOn?: pulumi.Resource[]) {
   );
 
   // Create a new version of the Razorpay secret.
-  new gcp.secretmanager.SecretVersion("razorpay-secret-version", {
-    secret: razorpaySecret.id,
-    secretData: razorpayConfig.requireSecret("secret"),
-  });
+  new gcp.secretmanager.SecretVersion(
+    "razorpay-secret-version",
+    {
+      secret: razorpaySecret.id,
+      secretData: razorpayConfig.requireSecret("secret"),
+    },
+    {
+      parent: razorpaySecret,
+    },
+  );
 
   // Create a new secret for Razorpay account number.
   const razorpayAccNo = new gcp.secretmanager.Secret(
@@ -52,11 +70,20 @@ export function createSecrets(dependsOn?: pulumi.Resource[]) {
         auto: {},
       },
     },
+    {
+      dependsOn,
+    },
   );
 
   // Create a new version of the Razorpay account number secret.
-  new gcp.secretmanager.SecretVersion("razorpay-account-number-version", {
-    secret: razorpayAccNo.id,
-    secretData: razorpayConfig.requireSecret("accountNumber"),
-  });
+  new gcp.secretmanager.SecretVersion(
+    "razorpay-account-number-version",
+    {
+      secret: razorpayAccNo.id,
+      secretData: razorpayConfig.requireSecret("accountNumber"),
+    },
+    {
+      parent: razorpayAccNo,
+    },
+  );
 }
