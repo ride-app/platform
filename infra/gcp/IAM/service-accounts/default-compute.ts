@@ -9,7 +9,7 @@ export function updateDefaultComputeServiceAccount(
   projectNumber: string = gcp.config.project!,
 ) {
   // Specify the roles to add to the default compute service account.
-  const svcAccRoles = ["roles/secretmanager.secretAccessor"];
+  const svcAccRoles: string[] = ["roles/secretmanager.secretAccessor"];
 
   // Map over the roles and create a new IAM member for each one.
   return svcAccRoles.map(

@@ -10,8 +10,8 @@ export function updateCloudBuildServiceAccount(
 ) {
   // Get the project number and use it to construct the default compute service account email.
   // Specify the roles to add to the default compute service account.
-  const svcAccRoles = [
-    // "roles/iam.serviceAccountUser",
+  const svcAccRoles: string[] = [
+    "roles/iam.serviceAccountUser",
     "roles/secretmanager.secretAccessor",
     "roles/run.admin",
   ];

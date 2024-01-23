@@ -24,7 +24,11 @@ const pulumiSvcAcc = new ServiceAccount(
   {
     accountId: "pulumi",
     displayName: "Pulumi",
-    roles: ["roles/editor", "roles/resourcemanager.projectIamAdmin"],
+    roles: [
+      "roles/editor",
+      "roles/resourcemanager.projectIamAdmin",
+      "roles/secretmanager.secretAccessor",
+    ],
   },
   {
     dependsOn: [iamApi],
