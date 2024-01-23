@@ -5,7 +5,7 @@ This module defines the Bazel dependencies for the platform project.
 bazel_dep(name = "gazelle", version = "0.35.0")
 bazel_dep(name = "rules_oci", version = "1.6.0")
 bazel_dep(name = "container_structure_test", version = "1.16.0")
-bazel_dep(name = "aspect_rules_js", version = "1.35.0")
+bazel_dep(name = "aspect_rules_js", version = "1.36.1")
 bazel_dep(name = "aspect_rules_ts", version = "2.1.0")
 bazel_dep(name = "rules_nodejs", version = "6.0.3")
 bazel_dep(name = "rules_go", version = "0.45.1")
