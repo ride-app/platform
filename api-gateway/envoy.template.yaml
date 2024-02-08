@@ -76,10 +76,10 @@ static_resources:
                             cluster: marketplace_service_cluster
                             auto_host_rewrite: true
 
-                        - match: { prefix: /ride.wallet }
-                          stat_prefix: wallet_service
+                        - match: { prefix: /ride.payments }
+                          stat_prefix: payments_service
                           route:
-                            cluster: wallet_service_cluster
+                            cluster: payments_service_cluster
                             auto_host_rewrite: true
 
                         - match: { prefix: /ride.recharge }
@@ -196,20 +196,20 @@ static_resources:
         typed_config:
           "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
 
-    - name: wallet_service_cluster
+    - name: payments_service_cluster
       connect_timeout: 10s
       type: LOGICAL_DNS
       dns_lookup_family: V4_ONLY
       http2_protocol_options: {}
       load_assignment:
-        cluster_name: wallet_service_cluster
+        cluster_name: payments_service_cluster
         endpoints:
           - lb_endpoints:
               - endpoint:
                   address:
                     socket_address:
                       {
-                        address: wallet-service-$SERVICE_SUFFIX-em.a.run.app,
+                        address: payments-service-$SERVICE_SUFFIX-em.a.run.app,
                         port_value: 443,
                       }
       transport_socket:
