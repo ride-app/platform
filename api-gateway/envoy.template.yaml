@@ -82,18 +82,6 @@ static_resources:
                             cluster: payments_service_cluster
                             auto_host_rewrite: true
 
-                        - match: { prefix: /ride.recharge }
-                          stat_prefix: recharge_service
-                          route:
-                            cluster: recharge_service_cluster
-                            auto_host_rewrite: true
-
-                        - match: { prefix: /ride.payout }
-                          stat_prefix: payout_service
-                          route:
-                            cluster: payout_service_cluster
-                            auto_host_rewrite: true
-
                         - match: { prefix: /ride.notification }
                           stat_prefix: notification_service
                           route:
@@ -210,48 +198,6 @@ static_resources:
                     socket_address:
                       {
                         address: payments-service-$SERVICE_SUFFIX-em.a.run.app,
-                        port_value: 443,
-                      }
-      transport_socket:
-        name: envoy.transport_sockets.tls
-        typed_config:
-          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
-
-    - name: recharge_service_cluster
-      connect_timeout: 10s
-      type: LOGICAL_DNS
-      dns_lookup_family: V4_ONLY
-      http2_protocol_options: {}
-      load_assignment:
-        cluster_name: recharge_service_cluster
-        endpoints:
-          - lb_endpoints:
-              - endpoint:
-                  address:
-                    socket_address:
-                      {
-                        address: recharge-service-$SERVICE_SUFFIX-em.a.run.app,
-                        port_value: 443,
-                      }
-      transport_socket:
-        name: envoy.transport_sockets.tls
-        typed_config:
-          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
-
-    - name: payout_service_cluster
-      connect_timeout: 10s
-      type: LOGICAL_DNS
-      dns_lookup_family: V4_ONLY
-      http2_protocol_options: {}
-      load_assignment:
-        cluster_name: payout_service_cluster
-        endpoints:
-          - lb_endpoints:
-              - endpoint:
-                  address:
-                    socket_address:
-                      {
-                        address: payout-service-$SERVICE_SUFFIX-em.a.run.app,
                         port_value: 443,
                       }
       transport_socket:
