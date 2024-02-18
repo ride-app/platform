@@ -2,12 +2,12 @@
 # To learn more about the format of this file, see https://docs.trunk.io/reference/trunk-yaml
 version: 0.1
 cli:
-  version: 1.19.0
+  version: 1.20.0
 # Trunk provides extensibility via plugins. (https://docs.trunk.io/plugins)
 plugins:
   sources:
     - id: trunk
-      ref: v1.4.2
+      ref: v1.4.3
       uri: https://github.com/trunk-io/plugins
 # Many linters and tools depend on runtimes - configure them here. (https://docs.trunk.io/runtimes)
 runtimes:
@@ -19,21 +19,21 @@ runtimes:
 lint:
   enabled:
     - buildifier@6.4.0
-    - renovate@37.129.1
+    - renovate@37.192.2
     - actionlint@1.6.26
-    - checkov@3.1.57
+    - checkov@3.2.21
     - git-diff-check
     - gofmt@1.20.4
-    - golangci-lint@1.55.2
+    - golangci-lint@1.56.2
     - hadolint@2.12.0
-    - osv-scanner@1.5.0
-    - prettier@3.1.1
+    - osv-scanner@1.6.2
+    - prettier@3.2.5
     - shellcheck@0.9.0
     - shfmt@3.6.0
     - terrascan@1.18.11
-    - trivy@0.48.3
-    - trufflehog@3.63.8
-    - yamllint@1.33.0
+    - trivy@0.49.1
+    - trufflehog@3.67.6
+    - yamllint@1.35.0
 actions:
   enabled:
     - trunk-announce
@@ -42,7 +42,7 @@ actions:
     - trunk-upgrade-available
 tools:
   enabled:
-    - bazel@7.0.0
+    - bazel@7.0.2
 merge:
   required_statuses:
     - Build
