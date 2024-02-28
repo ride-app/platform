@@ -2,7 +2,7 @@
   "devDependencies": {
     "@tsconfig/node-lts": "20.1.1",
     "@tsconfig/strictest": "2.0.3",
-    "@types/node": "20.11.21"
+    "@types/node": "20.11.22"
   },
   "dependencies": {
     "@pulumi/gcp": "^7.4.0",
