@@ -7,7 +7,7 @@ cli:
 plugins:
   sources:
     - id: trunk
-      ref: v1.4.3
+      ref: v1.4.4
       uri: https://github.com/trunk-io/plugins
 # Many linters and tools depend on runtimes - configure them here. (https://docs.trunk.io/runtimes)
 runtimes:
@@ -19,7 +19,7 @@ runtimes:
 lint:
   enabled:
     - buildifier@6.4.0
-    - renovate@37.220.1
+    - renovate@37.221.4
     - actionlint@1.6.27
     - checkov@3.2.28
     - git-diff-check
