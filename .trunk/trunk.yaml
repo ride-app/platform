@@ -19,7 +19,7 @@ runtimes:
 lint:
   enabled:
     - buildifier@6.4.0
-    - renovate@37.227.1
+    - renovate@37.229.3
     - actionlint@1.6.27
     - checkov@3.2.31
     - git-diff-check
