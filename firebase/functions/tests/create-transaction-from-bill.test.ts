@@ -11,7 +11,7 @@ const testEnv = functions(
 	{
 		projectId: "ride-app-test-1",
 	},
-	"./test-service-account.json"
+	"./test-service-account.json",
 );
 
 const wrapped = testEnv.wrap(createTransactionFromBill);
@@ -42,7 +42,7 @@ describe("Create Transaction from bill", () => {
 
 	const createTransactionsSpy = jest.spyOn(
 		WalletService.prototype,
-		"createTransactions"
+		"createTransactions",
 	);
 
 	afterEach(() => {
@@ -69,7 +69,7 @@ describe("Create Transaction from bill", () => {
 					},
 				},
 			},
-			"bills/test-bill-id"
+			"bills/test-bill-id",
 		);
 
 		await expect(
@@ -77,7 +77,7 @@ describe("Create Transaction from bill", () => {
 				params: {
 					billId: "test-bill-id",
 				},
-			})
+			}),
 		).rejects.toThrow();
 
 		expect(getAccountByUidSpy).toHaveBeenCalledTimes(1);
@@ -102,7 +102,7 @@ describe("Create Transaction from bill", () => {
 					},
 				},
 			},
-			"bills/test-bill-id"
+			"bills/test-bill-id",
 		);
 
 		await expect(
@@ -110,7 +110,7 @@ describe("Create Transaction from bill", () => {
 				params: {
 					billId: "test-bill-id",
 				},
-			})
+			}),
 		).rejects.toThrow();
 
 		expect(getAccountByUidSpy).toHaveBeenCalledTimes(2);

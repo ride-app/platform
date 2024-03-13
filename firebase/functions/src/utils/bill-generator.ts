@@ -163,61 +163,61 @@ class BillGenerator {
 
 		tempBill.base = {
 			distance: Math.abs(
-				this.rates.base.distance * this.billData.base.distance
+				this.rates.base.distance * this.billData.base.distance,
 			),
 			time: Math.abs(this.rates.base.time * this.billData.base.time),
 			waitTime: Math.abs(
-				this.rates.base.waitTime * this.billData.base.waitTime
+				this.rates.base.waitTime * this.billData.base.waitTime,
 			),
 		};
 
 		tempBill.base.total = Math.abs(
 			(tempBill.base.distance as number) +
 				(tempBill.base.time as number) +
-				(tempBill.base.waitTime as number)
+				(tempBill.base.waitTime as number),
 		);
 
 		tempBill.rider = {
 			cancellation: Math.abs(
-				this.rates.rider.cancellation * this.billData.rider.cancellation
+				this.rates.rider.cancellation * this.billData.rider.cancellation,
 			),
 			tax: Math.abs(
 				((Math.abs(this.rates.rider.tax.percentage) * tempBill.base.total) /
 					100) *
-					this.billData.rider.tax
+					this.billData.rider.tax,
 			),
 			platformFee: Math.abs(
-				this.rates.rider.platformFee * this.billData.rider.platformFee
+				this.rates.rider.platformFee * this.billData.rider.platformFee,
 			),
 		};
 
 		tempBill.rider.total = Math.abs(
 			(tempBill.rider.cancellation as number) +
 				(tempBill.rider.tax as number) +
-				(tempBill.rider.platformFee as number)
+				(tempBill.rider.platformFee as number),
 		);
 
 		tempBill.driver = {
 			cancellation: Math.abs(
-				this.rates.driver.cancellation * this.billData.driver.cancellation
+				this.rates.driver.cancellation * this.billData.driver.cancellation,
 			),
 			tax: Math.abs(
 				((Math.abs(this.rates.driver.tax.percentage) * tempBill.base.total) /
 					100) *
-					this.billData.driver.tax
+					this.billData.driver.tax,
 			),
 			platformFee: Math.abs(
 				((Math.abs(this.rates.driver.platformFee.percentage) *
 					tempBill.base.total) /
 					100) *
-					this.billData.driver.platformFee
+					this.billData.driver.platformFee,
 			),
 		};
 
 		tempBill.driver.total = Math.abs(
 			(tempBill.driver.cancellation as number) +
 				(tempBill.driver.tax as number) +
-				(tempBill.driver.platformFee as number)
+				(tempBill.driver.platformFee as number),
 		);
 
 		// this.bill = tempBill as Bill;

@@ -59,9 +59,7 @@ export class WorkloadIdentity extends pulumi.ComponentResource {
       const name = await new Promise<string>((resolve) => {
         oidcProvider.workloadIdentityPoolId.apply((workloadIdentityPoolId) => {
           return serviceAccount.accountId.apply((value) => {
-            resolve(
-              `${value}-service-account-${workloadIdentityPoolId}-workload-identity`,
-            );
+            resolve(`${value}-service-account-${workloadIdentityPoolId}-workload-identity`);
           });
         });
       });
@@ -110,9 +108,7 @@ export class WorkloadIdentity extends pulumi.ComponentResource {
           members: [
             pulumi.interpolate`principalSet://iam.googleapis.com/projects/${
               args.projectNumber ?? gcp.config.project
-            }/locations/global/workloadIdentityPools/${
-              oidcProvider.workloadIdentityPoolId
-            }/*`,
+            }/locations/global/workloadIdentityPools/${oidcProvider.workloadIdentityPoolId}/*`,
           ],
         },
         {

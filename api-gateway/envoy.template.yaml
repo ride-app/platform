@@ -112,10 +112,7 @@ static_resources:
               - endpoint:
                   address:
                     socket_address:
-                      {
-                        address: user-service-$SERVICE_SUFFIX-em.a.run.app,
-                        port_value: 443,
-                      }
+                      { address: user-service-$SERVICE_SUFFIX-em.a.run.app, port_value: 443 }
       transport_socket:
         name: envoy.transport_sockets.tls
         typed_config:
@@ -133,10 +130,7 @@ static_resources:
               - endpoint:
                   address:
                     socket_address:
-                      {
-                        address: driver-service-$SERVICE_SUFFIX-em.a.run.app,
-                        port_value: 443,
-                      }
+                      { address: driver-service-$SERVICE_SUFFIX-em.a.run.app, port_value: 443 }
       transport_socket:
         name: envoy.transport_sockets.tls
         typed_config:
@@ -154,10 +148,7 @@ static_resources:
               - endpoint:
                   address:
                     socket_address:
-                      {
-                        address: trip-service-$SERVICE_SUFFIX-em.a.run.app,
-                        port_value: 443,
-                      }
+                      { address: trip-service-$SERVICE_SUFFIX-em.a.run.app, port_value: 443 }
       transport_socket:
         name: envoy.transport_sockets.tls
         typed_config:
@@ -175,10 +166,7 @@ static_resources:
               - endpoint:
                   address:
                     socket_address:
-                      {
-                        address: marketplace-service-$SERVICE_SUFFIX-em.a.run.app,
-                        port_value: 443,
-                      }
+                      { address: marketplace-service-$SERVICE_SUFFIX-em.a.run.app, port_value: 443 }
       transport_socket:
         name: envoy.transport_sockets.tls
         typed_config:
@@ -196,10 +184,7 @@ static_resources:
               - endpoint:
                   address:
                     socket_address:
-                      {
-                        address: payments-service-$SERVICE_SUFFIX-em.a.run.app,
-                        port_value: 443,
-                      }
+                      { address: payments-service-$SERVICE_SUFFIX-em.a.run.app, port_value: 443 }
       transport_socket:
         name: envoy.transport_sockets.tls
         typed_config:

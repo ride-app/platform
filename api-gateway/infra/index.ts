@@ -1,8 +1,7 @@
 import * as gcp from "@pulumi/gcp";
 import * as pulumi from "@pulumi/pulumi";
 
-const serviceName =
-  new pulumi.Config("service").get("name") || pulumi.getProject();
+const serviceName = new pulumi.Config("service").get("name") || pulumi.getProject();
 const location = "asia-east1";
 
 const github_connection = gcp.cloudbuildv2.Connection.get(

@@ -7,7 +7,7 @@ const testEnv = functions(
 	{
 		projectId: "ride-app-test-1",
 	},
-	"./test-service-account.json"
+	"./test-service-account.json",
 );
 
 const wrapped = testEnv.wrap(reconcile);
@@ -27,7 +27,7 @@ describe("Reconcile", () => {
 				amount: 10,
 				type: "DEBIT",
 			},
-			"transactions/test-transaction-id"
+			"transactions/test-transaction-id",
 		);
 		const wrappedFunction = wrapped(data);
 
@@ -48,7 +48,7 @@ describe("Reconcile", () => {
 				amount: "10",
 				type: "DEBIT",
 			},
-			"transactions/test-transaction-id"
+			"transactions/test-transaction-id",
 		);
 		const wrappedFunction = wrapped(data);
 
@@ -69,7 +69,7 @@ describe("Reconcile", () => {
 				amount: 10,
 				type: "INVALID",
 			},
-			"transactions/test-transaction-id"
+			"transactions/test-transaction-id",
 		);
 		const wrappedFunction = wrapped(data);
 
@@ -91,7 +91,7 @@ describe("Reconcile", () => {
 					amount: 10,
 					type: "DEBIT",
 				},
-				"transactions/test-transaction-id"
+				"transactions/test-transaction-id",
 			);
 			const wrappedFunction = wrapped(data);
 
@@ -123,7 +123,7 @@ describe("Reconcile", () => {
 					amount: 10,
 					type: "DEBIT",
 				},
-				"transactions/test-transaction-id"
+				"transactions/test-transaction-id",
 			);
 			const wrappedFunction = wrapped(data);
 
@@ -144,7 +144,7 @@ describe("Reconcile", () => {
 					amount: 0,
 					type: "CREDIT",
 				},
-				"transactions/test-transaction-id"
+				"transactions/test-transaction-id",
 			);
 			const wrappedFunction = wrapped(data);
 

@@ -8,7 +8,7 @@ const testEnv = functions(
 	{
 		projectId: "ride-app-test-1",
 	},
-	"./test-service-account.json"
+	"./test-service-account.json",
 );
 
 const wrapped = testEnv.wrap(createBill);
@@ -25,13 +25,13 @@ describe("Create Bill", () => {
 			{
 				status: "same",
 			},
-			"trips/test-trip-id"
+			"trips/test-trip-id",
 		);
 
 		await expect(
 			wrapped(testEnv.makeChange(data, data), {
 				params: { tripId: "test-trip-id" },
-			})
+			}),
 		).resolves.not.toThrow();
 
 		const billSnap = await firestore
@@ -46,13 +46,13 @@ describe("Create Bill", () => {
 			{
 				status: "incomplete",
 			},
-			"trips/test-trip-id"
+			"trips/test-trip-id",
 		);
 
 		await expect(
 			wrapped(testEnv.makeChange(data, data), {
 				params: { tripId: "test-trip-id" },
-			})
+			}),
 		).resolves.not.toThrow();
 
 		const billSnap = await firestore
@@ -72,7 +72,7 @@ describe("Create Bill", () => {
 					{
 						status: "test",
 					},
-					"trips/test-trip-id"
+					"trips/test-trip-id",
 				);
 				const after = testEnv.firestore.makeDocumentSnapshot(
 					{
@@ -80,12 +80,12 @@ describe("Create Bill", () => {
 						polyline: "",
 						passengers: 1,
 					},
-					"trips/test-trip-id"
+					"trips/test-trip-id",
 				);
 				await expect(
 					wrapped(testEnv.makeChange(before, after), {
 						params: { tripId: "test-trip-id" },
-					})
+					}),
 				).resolves.not.toThrow();
 
 				const billSnap = await firestore
@@ -101,7 +101,7 @@ describe("Create Bill", () => {
 					{
 						status: "test",
 					},
-					"trips/test-trip-id"
+					"trips/test-trip-id",
 				);
 				const after = testEnv.firestore.makeDocumentSnapshot(
 					{
@@ -109,13 +109,13 @@ describe("Create Bill", () => {
 						polyline: "",
 						passengers: 2,
 					},
-					"trips/test-trip-id"
+					"trips/test-trip-id",
 				);
 
 				await expect(
 					wrapped(testEnv.makeChange(before, after), {
 						params: { tripId: "test-trip-id" },
-					})
+					}),
 				).resolves.not.toThrow();
 
 				const billSnap = await firestore
@@ -133,19 +133,19 @@ describe("Create Bill", () => {
 					{
 						status: "test",
 					},
-					"trips/test-trip-id"
+					"trips/test-trip-id",
 				);
 				const after = testEnv.firestore.makeDocumentSnapshot(
 					{
 						status: "cancelled",
 						cancelledBy: "driver",
 					},
-					"trips/test-trip-id"
+					"trips/test-trip-id",
 				);
 				await expect(
 					wrapped(testEnv.makeChange(before, after), {
 						params: { tripId: "test-trip-id" },
-					})
+					}),
 				).resolves.not.toThrow();
 
 				const billSnap = await firestore
@@ -161,19 +161,19 @@ describe("Create Bill", () => {
 					{
 						status: "test",
 					},
-					"trips/test-trip-id"
+					"trips/test-trip-id",
 				);
 				const after = testEnv.firestore.makeDocumentSnapshot(
 					{
 						status: "cancelled",
 						cancelledBy: "rider",
 					},
-					"trips/test-trip-id"
+					"trips/test-trip-id",
 				);
 				await expect(
 					wrapped(testEnv.makeChange(before, after), {
 						params: { tripId: "test-trip-id" },
-					})
+					}),
 				).resolves.not.toThrow();
 
 				const billSnap = await firestore

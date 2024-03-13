@@ -26,7 +26,7 @@ export const onOfferAccept = functions
 						.collection("activeDrivers")
 						.doc(context.params.driverId)
 						.collection("tripOffers")
-						.doc(context.params.tripId)
+						.doc(context.params.tripId),
 				);
 
 				transaction.set(
@@ -37,7 +37,7 @@ export const onOfferAccept = functions
 						.doc(context.params.tripId),
 					{
 						ref: firestore.collection("trips").doc(context.params.tripId),
-					}
+					},
 				);
 
 				// transaction.update(

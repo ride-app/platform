@@ -97,7 +97,7 @@ export class WalletService {
 	private constructor() {
 		WalletService._stub = new WalletServiceClient(
 			`${process.env.WALLET_SERVICE_ADDRESS}`,
-			credentials.createInsecure()
+			credentials.createInsecure(),
 		);
 	}
 
@@ -127,7 +127,7 @@ export class WalletService {
 	// }
 
 	async createTransactions(
-		req: BatchCreateTransactionsRequest
+		req: BatchCreateTransactionsRequest,
 	): Promise<string | undefined> {
 		return new Promise((resolve, reject) => {
 			WalletService._stub.batchCreateTransactions(req, (err, res) => {
