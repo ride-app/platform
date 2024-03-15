@@ -6,7 +6,7 @@
   "devDependencies": {
     "@tsconfig/node-lts": "20.1.1",
     "@tsconfig/strictest": "2.0.3",
-    "@types/node": "20.11.27",
+    "@types/node": "20.11.28",
     "@typescript-eslint/eslint-plugin": "7.2.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-jest": "27.9.0",
