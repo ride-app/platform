@@ -16,8 +16,8 @@ importers:
         version: 3.111.1
     devDependencies:
       '@tsconfig/node-lts':
-        specifier: 20.1.1
-        version: 20.1.1
+        specifier: 20.1.2
+        version: 20.1.2
       '@tsconfig/strictest':
         specifier: 2.0.3
         version: 2.0.3
@@ -649,8 +649,8 @@ packages:
       defer-to-connect: 2.0.1
     dev: false
 
-  /@tsconfig/node-lts@20.1.1:
-    resolution: {integrity: sha512-V7wHydi1dv8I8xiOX3pJ0lhC+MlOakznvLks94J6y/TqQK6DBcbdD1G4jEq8yU+s6lBASPn4e1Ci636fDqeyvQ==}
+  /@tsconfig/node-lts@20.1.2:
+    resolution: {integrity: sha512-ac1p25SlBvxIG7WInTKMcIOpk+jzXcaOuhCiE4Ddq38RAvp0uWCugTedUHN4sobVTMbIKALbBI+ucGrQmPoeiA==}
     dev: true
 
   /@tsconfig/strictest@2.0.3:
