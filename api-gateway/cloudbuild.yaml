@@ -29,7 +29,7 @@ steps:
       - $_SERVICE_NAME
       - --image
       - asia-south2-docker.pkg.dev/$PROJECT_ID/docker-registry/$_SERVICE_NAME:$COMMIT_SHA
-      - --region=asia-east1
+      - --region=asia-south2
       - --allow-unauthenticated
       - --max-instances=10
       - --port=8080
