@@ -3,7 +3,7 @@ substitutions:
 
 steps:
   # Step 1: Build a Docker image
-  - name: gcr.io/cloud-builders/docker@sha256:758af783935fad0f0b3145e3f22042bde1d30c4f197805d58822ea1f9d872ebc
+  - name: gcr.io/cloud-builders/docker@sha256:77875bc684cad6105521722a6e6a747eb62d983940da1db7c79851eca41545b4
     args:
       - build
       - --build-arg=HOSTNAME=$_DOMAIN
@@ -15,7 +15,7 @@ steps:
       - ./api-gateway
 
   # Step 2: Push a Docker image
-  - name: gcr.io/cloud-builders/docker@sha256:758af783935fad0f0b3145e3f22042bde1d30c4f197805d58822ea1f9d872ebc
+  - name: gcr.io/cloud-builders/docker@sha256:77875bc684cad6105521722a6e6a747eb62d983940da1db7c79851eca41545b4
     args:
       - push
       - asia-south2-docker.pkg.dev/$PROJECT_ID/docker-registry/$_SERVICE_NAME:$COMMIT_SHA
