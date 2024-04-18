@@ -12,5 +12,5 @@ ENV SERVICE_SUFFIX ${SERVICE_SUFFIX}
 COPY envoy.template.yaml envoy.template.yaml
 RUN envsubst < envoy.template.yaml > envoy.yaml
 
-FROM envoyproxy/envoy:distroless-v1.28-latest@sha256:faf1335d6b31414726dfcbc1d84d16da1cd8ac49e6ef00d0a56224b76975d163
+FROM envoyproxy/envoy:distroless-v1.28-latest@sha256:94cb856985f81f1d83db17e8b5ed1a6bb9641734abba174803f398bb3a9171b5
 COPY --from=builder /app/envoy.yaml /etc/envoy/envoy.yaml
