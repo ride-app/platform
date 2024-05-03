@@ -31,8 +31,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0(eslint@8.57.0)
       eslint-plugin-jest:
-        specifier: 28.3.0
-        version: 28.3.0(@typescript-eslint/eslint-plugin@7.8.0)(eslint@8.57.0)(typescript@5.4.5)
+        specifier: 28.4.0
+        version: 28.4.0(@typescript-eslint/eslint-plugin@7.8.0)(eslint@8.57.0)(typescript@5.4.5)
       eslint-plugin-prettier:
         specifier: 5.1.3
         version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.57.0)(prettier@3.2.5)
@@ -1355,8 +1355,8 @@ packages:
       eslint: 8.57.0
     dev: true
 
-  /eslint-plugin-jest@28.3.0(@typescript-eslint/eslint-plugin@7.8.0)(eslint@8.57.0)(typescript@5.4.5):
-    resolution: {integrity: sha512-5LjCSSno8E+IUCOX4hJiIb/upPIgpkaDEcaN/40gOcw26t/5UTLHFc4JdxKjOOvGTh0XdCu+fNr0fpOVNvcxMA==}
+  /eslint-plugin-jest@28.4.0(@typescript-eslint/eslint-plugin@7.8.0)(eslint@8.57.0)(typescript@5.4.5):
+    resolution: {integrity: sha512-ORVHiFPC8RQxHLyQJ37MxNilK9k+cPzjHz65T8gAbpYZunGutXvKqwfM3WXBCvFDF1QBeYJJu9LB/i5cuXBs+g==}
     engines: {node: ^16.10.0 || ^18.12.0 || >=20.0.0}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^6.0.0 || ^7.0.0
