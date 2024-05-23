@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@pulumi/gcp':
         specifier: ^7.4.0
-        version: 7.21.2(typescript@5.4.5)
+        version: 7.23.0(typescript@5.4.5)
       '@pulumi/pulumi':
         specifier: ^3.99.0
         version: 3.116.1(typescript@5.4.5)
@@ -537,8 +537,8 @@ packages:
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
     dev: false
 
-  /@pulumi/gcp@7.21.2(typescript@5.4.5):
-    resolution: {integrity: sha512-JE7FTsbAsM8w3DG0PrURVadtJWtd61RY0STmekFdxRFGPRLGgXhheWMsyGxy4G5BHK0LyEUaEtQOERkkBY36Bg==}
+  /@pulumi/gcp@7.23.0(typescript@5.4.5):
+    resolution: {integrity: sha512-3FzQ+Uqz6bKoko5n+OtRYO/LE1gae6QrWwCvYTumlO7/X5z/ipYBBJ/gVtI0W/mgRTt58iwh07IlWd6GDfhoBQ==}
     dependencies:
       '@pulumi/pulumi': 3.116.1(typescript@5.4.5)
       '@types/express': 4.17.21
@@ -707,8 +707,8 @@ packages:
       '@types/node': 20.12.12
     dev: false
 
-  /@types/express-serve-static-core@4.19.0:
-    resolution: {integrity: sha512-bGyep3JqPCRry1wq+O5n7oiBgGWmeIJXPjXXCo8EK0u8duZGSYar7cGqd3ML2JUsLGeB7fmc06KYo9fLGWqPvQ==}
+  /@types/express-serve-static-core@4.19.1:
+    resolution: {integrity: sha512-ej0phymbFLoCB26dbbq5PGScsf2JAJ4IJHjG10LalgUV36XKTmA4GdA+PVllKvRk0sEKt64X8975qFnkSi0hqA==}
     dependencies:
       '@types/node': 20.12.12
       '@types/qs': 6.9.15
@@ -720,7 +720,7 @@ packages:
     resolution: {integrity: sha512-ejlPM315qwLpaQlQDTjPdsUFSc6ZsP4AN6AlWnogPjQ7CVi7PYF3YVz+CY3jE2pwYf7E/7HlDAN0rV2GxTG0HQ==}
     dependencies:
       '@types/body-parser': 1.19.5
-      '@types/express-serve-static-core': 4.19.0
+      '@types/express-serve-static-core': 4.19.1
       '@types/qs': 6.9.15
       '@types/serve-static': 1.15.7
     dev: false
@@ -1767,6 +1767,7 @@ packages:
 
   /inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
     dependencies:
       once: 1.4.0
       wrappy: 1.0.2
@@ -2522,6 +2523,7 @@ packages:
 
   /read-package-json@2.1.2:
     resolution: {integrity: sha512-D1KmuLQr6ZSJS0tW8hf3WGpRlwszJOXZ3E8Yd/DNRaM5d+1wVRZdHlpGBLAuovjr28LbWvjpWkBHMxpRGGjzNA==}
+    deprecated: This package is no longer supported. Please use @npmcli/package-json instead.
     dependencies:
       glob: 7.2.3
       json-parse-even-better-errors: 2.3.1
