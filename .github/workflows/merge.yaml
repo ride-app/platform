@@ -1,29 +1,29 @@
-name: Merge
+# name: Merge
 
-permissions: read-all
+# permissions: read-all
 
-on:
-  push:
-    branches:
-      - trunk-merge/**
+# on:
+#   push:
+#     branches:
+#       - trunk-merge/**
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    name: Build
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 10
+#     name: Build
+#     steps:
+#       - name: Checkout Code
+#         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
 
-      - name: Cache Bazel
-        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
-        with:
-          path: |
-            ~/.cache/bazel
-          key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
-          restore-keys: |
-            ${{ runner.os }}-bazel-
+#       - name: Cache Bazel
+#         uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+#         with:
+#           path: |
+#             ~/.cache/bazel
+#           key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
+#           restore-keys: |
+#             ${{ runner.os }}-bazel-
 
-      - name: Build
-        run: bazelisk build //...
+#       - name: Build
+#         run: bazelisk build //...

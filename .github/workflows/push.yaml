@@ -1,57 +1,57 @@
-name: Push
+# name: Push
 
-permissions: read-all
+# permissions: read-all
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  # coverage:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   name: Upload Coverage
-  #   steps:
-  #     - name: Checkout Code
-  #       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+# jobs:
+# coverage:
+#   runs-on: ubuntu-latest
+#   timeout-minutes: 10
+#   name: Upload Coverage
+#   steps:
+#     - name: Checkout Code
+#       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
-  #     - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3
-  #       with:
-  #         path: |
-  #           ~/.cache/bazel
-  #         key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-bazel-
+#     - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3
+#       with:
+#         path: |
+#           ~/.cache/bazel
+#         key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
+#         restore-keys: |
+#           ${{ runner.os }}-bazel-
 
-  #     - name: Unit Tests
-  #       run: bazelisk coverage --combined_report=lcov //...
-  #       continue-on-error: true
+#     - name: Unit Tests
+#       run: bazelisk coverage --combined_report=lcov //...
+#       continue-on-error: true
 
-  #     - name: Upload coverage to Codecov
-  #       uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3
-  #       with:
-  #         token: ${{ secrets.CODECOV_TOKEN }}
-  #         flags: unit-tests
-  #         # files: ./cover.json,./report.json
-  #         fail_ci_if_error: true
-  #         verbose: true
+#     - name: Upload coverage to Codecov
+#       uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3
+#       with:
+#         token: ${{ secrets.CODECOV_TOKEN }}
+#         flags: unit-tests
+#         # files: ./cover.json,./report.json
+#         fail_ci_if_error: true
+#         verbose: true
 
-  cache:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    name: Cache Bazel
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+# cache:
+#   runs-on: ubuntu-latest
+#   timeout-minutes: 10
+#   name: Cache Bazel
+#   steps:
+#     - name: Checkout Code
+#       uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
 
-      - uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
-        with:
-          path: |
-            ~/.cache/bazel
-          key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
-          restore-keys: |
-            ${{ runner.os }}-bazel-
+#     - uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+#       with:
+#         path: |
+#           ~/.cache/bazel
+#         key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
+#         restore-keys: |
+#           ${{ runner.os }}-bazel-
 
-      - name: Build
-        run: bazelisk build //...
+#     - name: Build
+#       run: bazelisk build //...

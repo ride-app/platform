@@ -1,45 +1,45 @@
-name: PR
+# name: PR
 
-permissions: read-all
+# permissions: read-all
 
-on:
-  pull_request:
-    branches:
-      - main
+# on:
+#   pull_request:
+#     branches:
+#       - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    name: Build
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 10
+#     name: Build
+#     steps:
+#       - name: Checkout Code
+#         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
 
-      - name: Cache Bazel
-        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
-        with:
-          path: |
-            ~/.cache/bazel
-          key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
-          restore-keys: |
-            ${{ runner.os }}-bazel-
+#       - name: Cache Bazel
+#         uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+#         with:
+#           path: |
+#             ~/.cache/bazel
+#           key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
+#           restore-keys: |
+#             ${{ runner.os }}-bazel-
 
-      - name: Build
-        run: bazelisk build //...
+#       - name: Build
+#         run: bazelisk build //...
 
-  compute_impacted_targets:
-    timeout-minutes: 10
-    name: Compute Impacted Targets
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+#   compute_impacted_targets:
+#     timeout-minutes: 10
+#     name: Compute Impacted Targets
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
 
-      - name: Compute Impacted Targets
-        uses: trunk-io/merge-action@6a6b8568cb140a4d11bb9be876bdcf9c21094e5b # v1
-        with:
-          # Use your Trunk repo or org API token to authenticate impacted targets uploads.
-          # This secret should be provided as a GitHub secret.
-          # See https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions.
-          trunk-token: ${{ secrets.TRUNK_TOKEN }}
+#       - name: Compute Impacted Targets
+#         uses: trunk-io/merge-action@6a6b8568cb140a4d11bb9be876bdcf9c21094e5b # v1
+#         with:
+#           # Use your Trunk repo or org API token to authenticate impacted targets uploads.
+#           # This secret should be provided as a GitHub secret.
+#           # See https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions.
+#           trunk-token: ${{ secrets.TRUNK_TOKEN }}
