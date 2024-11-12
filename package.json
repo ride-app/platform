@@ -10,7 +10,7 @@
     "@tsconfig/strictest": "2.0.5",
     "@types/eslint__eslintrc": "2.1.2",
     "@types/eslint__js": "8.42.3",
-    "@types/node": "20.16.10",
+    "@types/node": "20.17.6",
     "@typescript-eslint/eslint-plugin": "8.8.0",
     "eslint": "9.11.1",
     "eslint-config-prettier": "9.1.0",
