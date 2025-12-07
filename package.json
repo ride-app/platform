@@ -4,7 +4,7 @@
     "@pulumi/pulumi": "^3.99.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "3.3.1",
+    "@eslint/eslintrc": "3.3.3",
     "@eslint/js": "9.11.1",
     "@tsconfig/node-lts": "20.1.3",
     "@tsconfig/strictest": "2.0.8",
